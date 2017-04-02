@@ -1,0 +1,8 @@
+Have a ERC20 coin offering operational crowdsale, displayed through the web/react and able to interact with metamask
+
+-Displays remaining coins
+-Coin price
+-recent buys
+
+input amount to buy- total + gas 
+metamask pops up on click
