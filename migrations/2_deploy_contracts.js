@@ -1,6 +1,7 @@
 var ConvertLib = artifacts.require("./ConvertLib.sol");
 var MetaCoin = artifacts.require("./MetaCoin.sol");
 var JaredToken = artifacts.require("./JaredToken.sol");
+var HelloWorld = artifacts.require("./HelloWorld.sol");
 
 
 module.exports = function(deployer) {
@@ -8,4 +9,5 @@ module.exports = function(deployer) {
   deployer.link(ConvertLib, MetaCoin);
   deployer.deploy(MetaCoin);
   deployer.deploy(JaredToken);
+  deployer.deploy(HelloWorld);
 };

@@ -1,7 +1,6 @@
 pragma solidity ^0.4.8;
 
 
-import '../installed_contracts/zeppelin/contracts/token/ERC20.sol';
 import '../installed_contracts/zeppelin/contracts/SafeMath.sol';
 
 
@@ -12,10 +11,30 @@ import '../installed_contracts/zeppelin/contracts/SafeMath.sol';
  * Based on code by FirstBlood:
  * https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol
  */
+
+ contract ERC20 {
+   uint public totalSupply;
+   function balanceOf(address who) constant returns (uint);
+   function allowance(address owner, address spender) constant returns (uint);
+
+   function transfer(address to, uint value) returns (bool ok);
+   function transferFrom(address from, address to, uint value) returns (bool ok);
+   function approve(address spender, uint value) returns (bool ok);
+   event Transfer(address indexed from, address indexed to, uint value);
+   event Approval(address indexed owner, address indexed spender, uint value);
+ }
+
+
 contract JaredToken is ERC20, SafeMath {
 
   mapping(address => uint) balances;
   mapping (address => mapping (address => uint)) allowed;
+
+  function JaredToken(//uint256 _initialAmount
+    ) {
+      totalSupply=5000;
+      //balances[msg.sender] = _initialAmount;
+  }
 
   function transfer(address _to, uint _value) returns (bool success) {
     balances[msg.sender] = safeSub(balances[msg.sender], _value);
@@ -37,7 +56,7 @@ contract JaredToken is ERC20, SafeMath {
     return true;
   }
 
-  function balanceOf(address who) constant returns (uint);
+
 
 
   function balanceOf(address _owner) constant returns (uint balance) {
