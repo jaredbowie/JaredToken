@@ -1,7 +1,55 @@
 pragma solidity ^0.4.8;
 
+/**
+ * Math operations with safety checks
+ */
+contract SafeMath {
+  function safeMul(uint a, uint b) internal returns (uint) {
+    uint c = a * b;
+    assert(a == 0 || c / a == b);
+    return c;
+  }
 
-import '../installed_contracts/zeppelin/contracts/SafeMath.sol';
+  function safeDiv(uint a, uint b) internal returns (uint) {
+    assert(b > 0);
+    uint c = a / b;
+    assert(a == b * c + a % b);
+    return c;
+  }
+
+  function safeSub(uint a, uint b) internal returns (uint) {
+    assert(b <= a);
+    return a - b;
+  }
+
+  function safeAdd(uint a, uint b) internal returns (uint) {
+    uint c = a + b;
+    assert(c>=a && c>=b);
+    return c;
+  }
+
+  function max64(uint64 a, uint64 b) internal constant returns (uint64) {
+    return a >= b ? a : b;
+  }
+
+  function min64(uint64 a, uint64 b) internal constant returns (uint64) {
+    return a < b ? a : b;
+  }
+
+  function max256(uint256 a, uint256 b) internal constant returns (uint256) {
+    return a >= b ? a : b;
+  }
+
+  function min256(uint256 a, uint256 b) internal constant returns (uint256) {
+    return a < b ? a : b;
+  }
+
+  function assert(bool assertion) internal {
+    if (!assertion) {
+      throw;
+    }
+  }
+}
 
 
 /**
@@ -27,13 +75,21 @@ import '../installed_contracts/zeppelin/contracts/SafeMath.sol';
 
 contract JaredToken is ERC20, SafeMath {
 
+  address public owner;
+
   mapping(address => uint) balances;
   mapping (address => mapping (address => uint)) allowed;
 
-  function JaredToken(//uint256 _initialAmount
-    ) {
-      totalSupply=5000;
-      //balances[msg.sender] = _initialAmount;
+  function JaredToken() {
+      owner=msg.sender;
+      balances[owner]=5000;
+  }
+
+
+
+  function supply () constant returns (uint sup) {
+    sup = 700;
+    return sup;
   }
 
   function transfer(address _to, uint _value) returns (bool success) {
@@ -56,8 +112,10 @@ contract JaredToken is ERC20, SafeMath {
     return true;
   }
 
-
-
+  function giveBalance(address _user, uint _amount) returns (bool success) {
+    balances[_user]=_amount;
+    return true;
+  }
 
   function balanceOf(address _owner) constant returns (uint balance) {
     return balances[_owner];

@@ -6,3 +6,5 @@ Have a ERC20 coin offering operational crowdsale, displayed through the web/reac
 
 input amount to buy- total + gas 
 metamask pops up on click
+
+token.supply.call().then(function(returned) {  console.log(returned.toString(10));}

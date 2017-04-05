@@ -6,4 +6,9 @@ contract HelloWorld {
   function HelloWorld() {
     balance=5;
   }
+function getBalance() constant returns (uint nowBalance) {
+  nowBalance=balance;
+  return nowBalance;
+}
+
 }
