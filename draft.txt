@@ -4,7 +4,10 @@ Have a ERC20 coin offering operational crowdsale, displayed through the web/reac
 -Coin price
 -recent buys
 
-input amount to buy- total + gas 
+input amount to buy- total + gas
 metamask pops up on click
 
 token.supply.call().then(function(returned) {  console.log(returned.toString(10));}
+
+ JSON.stringify(SmartToken.abi)
+

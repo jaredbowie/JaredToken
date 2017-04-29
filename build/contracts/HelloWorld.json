@@ -38,10 +38,16 @@
     "1491098414222": {
       "events": {},
       "links": {},
-      "address": "0xcf0679782e6ed520597a4ce42b044af42cff4232",
-      "updated_at": 1491364782523
+      "address": "0x3b20552367da00f6a311d6b58d9c48de24b8aa29",
+      "updated_at": 1491371005917
+    },
+    "1491972534858": {
+      "events": {},
+      "links": {},
+      "address": "0x715ed3b13f55c98f1d964ee641cd2cc15c62c0cc",
+      "updated_at": 1491973234793
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1491364782523
+  "updated_at": 1491973234793
 }
