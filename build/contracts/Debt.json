@@ -1,0 +1,43 @@
+{
+  "contract_name": "Debt",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "user1",
+          "type": "address"
+        },
+        {
+          "name": "user2",
+          "type": "address"
+        }
+      ],
+      "name": "getDebt",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "type": "constructor"
+    }
+  ],
+  "unlinked_binary": "0x606060405234610000575b73ef2c7fd3ce0afd6b57e6966ed3fa4c00fc8650626000527faca627adf6c06f8cf4bb5c2143f819cbce837bc34dcdd46a5549ac4acdd693ca60205260377e68df2a4b6b2536d64ff3fc3fe0c691b3d0928a09d62c17da3d2b6dfce86252555b5b60c1806100796000396000f300606060405263ffffffff60e060020a600035041663498b5ae881146022575b6000565b34600057604b73ffffffffffffffffffffffffffffffffffffffff60043581169060243516605d565b60408051918252519081900360200190f35b73ffffffffffffffffffffffffffffffffffffffff808316600090815260208181526040808320938516835292905220545b929150505600a165627a7a72305820dfbb63f40cac37f5118b66db104a91a5d5afef296e8b93900abc60c3c5124cb00029",
+  "networks": {
+    "1493711296335": {
+      "events": {},
+      "links": {},
+      "address": "0x875778d63a2aaed4c2f7305ad6808334409d8cb4",
+      "updated_at": 1493711813344
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1493711813344
+}

@@ -5,12 +5,24 @@ module.exports = function(callback) {
 var transaction = theBlock.transactions[0];
 console.log(transaction);
 */
-var myTokenAbi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"standard","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"TokenInfo","outputs":[{"name":"tokenInfo","type":"bytes32[]"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"},{"name":"_extraData","type":"bytes"}],"name":"approveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"source","type":"string"}],"name":"stringToBytes32","outputs":[{"name":"result","type":"bytes32"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[{"name":"initialSupply","type":"uint256"},{"name":"tokenName","type":"string"},{"name":"decimalUnits","type":"uint8"},{"name":"tokenSymbol","type":"string"}],"payable":false,"type":"constructor"},{"payable":false,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}];
-var myTokenAdd = "0x342a13fbab6dac8258c152d317c7c41537ceef6e";
-var myToken = web3.eth.contract(myTokenAbi).at(myTokenAdd);
-console.log('yo');
-var result = myToken.TokenInfo.call();
+
+var debtAbi = [{"constant":true,"inputs":[{"name":"user1","type":"address"},{"name":"user2","type":"address"}],"name":"getDebt","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"}];
+var debtAdd = "0x875778d63a2aaed4c2f7305ad6808334409d8cb4";
+var debt = web3.eth.contract(debtAbi).at(debtAdd);
+var result = debt.getDebt("0xb5569de6c618b2bab323960d07a096ab191f9640", "0xef2c7fd3ce0afd6b57e6966ed3fa4c00fc865062");
 console.log(result);
+var result2 = debt.getDebt("0xb5569de6c618b2bab323960d07a096ab191f9641", "0xef2c7fd3ce0afd6b57e6966ed3fa4c00fc865061");
+console.log(result2);
+
+//var wealthAbi = [{"constant":false,"inputs":[{"name":"aGuy","type":"address"},{"name":"aWealth","type":"address"}],"name":"addWealth","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getWealth","outputs":[{"name":"","type":"address[]"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"uint256"}],"name":"someWealth","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"}];
+//var wealthAdd =  "0x34bcfc573796795abb3552bb9805994a9eaa306c";
+//var wealth = web3.eth.contract(wealthAbi).at(wealthAdd);
+//var result = wealth.getWealth.call();
+//console.log(result);
+//wealth.addWealth("0xf0369509b9d2b6b4501e5016c9cf6013f1d135cb", "0xfc7f4ed967fdf4b4c060b276a6d6516d2fc5b415", {from: web3.eth.accounts[0], gas: 200000});
+//var result = wealth.getWealth.call();
+//console.log(result);
+
 
 //  var greeterAbi = [{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_newGreeting","type":"string"}],"name":"setGreeting","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"greet","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"}]
 //  var greeterAdd =  "0x1ecbfeb5c880cab1395fa30a22a94e36c9a21b04";

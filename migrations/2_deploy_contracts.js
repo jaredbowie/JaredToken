@@ -4,7 +4,7 @@
 //var HelloWorld = artifacts.require("./HelloWorld.sol");
 //var ProofOfExistence1 = artifacts.require("./ProofOfExistence1.sol");
 //var Greeter = artifacts.require("./Greeter.sol");
-var MyToken = artifacts.require("./Wealth.sol");
+var Debt = artifacts.require("./Debt.sol");
 
 module.exports = function(deployer) {
   //deployer.deploy(ConvertLib);
@@ -14,5 +14,5 @@ module.exports = function(deployer) {
   //deployer.deploy(HelloWorld);
   //deployer.deploy(ProofOfExistence1);
   //deployer.deploy(Greeter, "hiyo");
-  deployer.deploy(Wealth);
+  deployer.deploy(Debt);
 };
